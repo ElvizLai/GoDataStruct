@@ -18,6 +18,11 @@ func main() {
 	nqu.Enqueue("2")
 	nqu.Enqueue("3")
 
+	cqu := queue.NewChanQueue()
+	cqu.Enqueue("1")
+	cqu.Enqueue("2")
+	cqu.Enqueue("3")
+
 	ast := stack.NewArrayStack(0)
 	ast.Push("1")
 	ast.Push("2")
@@ -31,6 +36,7 @@ func main() {
 
 	fmt.Println("array queue", aqu.Dequeue(), aqu.Dequeue(), aqu.Dequeue(), aqu.Dequeue())
 	fmt.Println("node queue", nqu.Dequeue(), nqu.Dequeue(), nqu.Dequeue(), nqu.Dequeue())
+	fmt.Println("chan queue", cqu.Dequeue(), cqu.Dequeue(), cqu.Dequeue(), cqu.Dequeue())
 
 	fmt.Println("array stack", ast.Pop(), ast.Pop(), ast.Pop(), ast.Pop())
 	fmt.Println("node stack", nst.Pop(), nst.Pop(), nst.Pop(), nst.Pop())

@@ -1,10 +1,11 @@
 package main
 import "fmt"
 import (
-	"queue"
-	"stack"
-	"cipher"
-	"hashset"
+	"github.com/elvizlai/utils/queue"
+	"github.com/elvizlai/utils/stack"
+	"github.com/elvizlai/utils/cipher"
+	"github.com/elvizlai/utils/hashset"
+	"github.com/elvizlai/utils/node"
 )
 
 func main() {
@@ -58,4 +59,70 @@ func main() {
 	fmt.Println(hashSet2.Elements())
 	fmt.Println("IsSame:", hashSet1.Same(hashSet2))
 	fmt.Println("IsSuperSet:", hashSet1.IsSuperSet(hashSet2))
+
+	fmt.Println("FS")
+
+	n0 := &node.BinaryNode{}
+	n0.Item = "1"
+
+	n01 := &node.BinaryNode{}
+	n01.Item = "2"
+
+	n02 := &node.BinaryNode{}
+	n02.Item = "3"
+
+	n11 := &node.BinaryNode{}
+	n11.Item = "4"
+
+	n12 := &node.BinaryNode{}
+	n12.Item = "5"
+
+	n21 := &node.BinaryNode{}
+	n21.Item = "6"
+
+	n22 := &node.BinaryNode{}
+	n22.Item = "7"
+
+	n0.Left = n01
+	n0.Right = n02
+
+	n01.Left = n11
+	n01.Right = n12
+
+	n02.Left = n21
+	n02.Right = n22
+
+
+	node.DFS(n0, func(item interface{}) {
+		fmt.Println(item)
+	})
+
+	fmt.Println("BFS")
+
+	m1 := &node.Node{Item:1}
+
+	m2 := &node.Node{Item:2}
+
+	m3 := &node.Node{Item:3}
+
+	m4 := &node.Node{Item:4}
+
+	m5 := &node.Node{Item:5}
+
+	m6 := &node.Node{Item:6}
+
+	m7 := &node.Node{Item:7}
+
+	m1.Child = m2
+	m2.Peer = m3
+	m2.Child = m4
+	m4.Peer = m5
+	m3.Child = m6
+	m6.Peer = m7
+
+
+	node.BFS(m1, func(item interface{}) {
+		fmt.Println(item)
+	})
+
 }

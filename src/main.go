@@ -6,6 +6,8 @@ import (
 	"github.com/elvizlai/utils/cipher"
 	"github.com/elvizlai/utils/hashset"
 	"github.com/elvizlai/utils/node"
+	"github.com/elvizlai/utils/orderedMap"
+	"reflect"
 )
 
 func main() {
@@ -124,5 +126,26 @@ func main() {
 	node.BFS(m1, func(item interface{}) {
 		fmt.Println(item)
 	})
+
+
+	fmt.Println("------OrderedMap--------")
+	keys := orderedMap.NewKeys(func(e1 interface{}, e2 interface{}) int8 {
+		k1, k2 := e1.(string), e2.(string)
+		if k1==k2 {
+			return 0
+		}else if k1>k2 {
+			return 1
+		}else {
+			return -1
+		}
+	}, reflect.TypeOf(""))
+
+
+	omap := orderedMap.NewOrderedMap(keys, reflect.TypeOf(""))
+	omap.Put("lai", "abc")
+	omap.Put("a", "123")
+	omap.Put("汉", "elv")
+	omap.Put("3", "iz")
+	fmt.Println(omap)
 
 }

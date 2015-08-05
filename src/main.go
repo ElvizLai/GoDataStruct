@@ -1,5 +1,7 @@
 package main
+
 import "fmt"
+
 import (
 	"github.com/elvizlai/utils/queue"
 	"github.com/elvizlai/utils/stack"
@@ -62,7 +64,7 @@ func main() {
 	fmt.Println("IsSame:", hashSet1.Same(hashSet2))
 	fmt.Println("IsSuperSet:", hashSet1.IsSuperSet(hashSet2))
 
-	fmt.Println("FS")
+	fmt.Println("------------DFS-------------")
 
 	n0 := &node.BinaryNode{}
 	n0.Item = "1"
@@ -96,10 +98,11 @@ func main() {
 
 
 	node.DFS(n0, func(item interface{}) {
-		fmt.Println(item)
+		fmt.Print(item)
+		fmt.Print(" ")
 	})
 
-	fmt.Println("BFS")
+	fmt.Println("\n------------BFS-------------")
 
 	m1 := &node.Node{Item:1}
 
@@ -124,11 +127,12 @@ func main() {
 
 
 	node.BFS(m1, func(item interface{}) {
-		fmt.Println(item)
+		fmt.Print(item)
+		fmt.Print(" ")
 	})
 
 
-	fmt.Println("------OrderedMap--------")
+	fmt.Println("\n---------OrderedMap---------")
 	keys := orderedMap.NewKeys(func(e1 interface{}, e2 interface{}) int8 {
 		k1, k2 := e1.(string), e2.(string)
 		if k1==k2 {
@@ -147,5 +151,24 @@ func main() {
 	omap.Put("汉", "elv")
 	omap.Put("3", "iz")
 	fmt.Println(omap)
+
+	fmt.Println("-------ringQueue-------")
+	rq := queue.NewRingQueue(1)
+	fmt.Println(rq.Push("1"))
+	fmt.Print(rq.Pop()," ")
+	fmt.Println(rq.Push("2"))
+	fmt.Println(rq.Push("3"))
+	fmt.Println(rq.Push("4"))
+	fmt.Println(rq.Push("5"))
+
+	fmt.Print(rq.Pop()," ")
+	fmt.Print(rq.Pop()," ")
+	fmt.Print(rq.Pop()," ")
+	fmt.Print(rq.Pop()," ")
+	fmt.Print(rq.Pop()," ")
+	fmt.Print(rq.Pop())
+
+
+	fmt.Println(3&2)
 
 }

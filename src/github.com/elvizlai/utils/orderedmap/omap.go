@@ -1,10 +1,10 @@
 package orderedMap
+
 import (
 	"reflect"
 	"bytes"
 	"fmt"
 )
-
 
 // 有序的Map的接口类型。
 type OrderedMap interface {

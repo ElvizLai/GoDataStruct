@@ -51,11 +51,11 @@ func (set *hashSet) Len() int {
 }
 
 func (set *hashSet) Same(other set) bool {
-	if other==nil {
+	if other == nil {
 		return false
 	}
 
-	if set.Len()!=other.Len() {
+	if set.Len() != other.Len() {
 		return false
 	}
 
@@ -73,14 +73,14 @@ func (set *hashSet) Elements() []interface{} {
 	snapshot := make([]interface{}, initialLen)
 	actualLen := 0
 	for key := range set.m {
-		if actualLen<initialLen {
-			snapshot[actualLen]=key
+		if actualLen < initialLen {
+			snapshot[actualLen] = key
 		}else {
-			snapshot=append(snapshot, key)
+			snapshot = append(snapshot, key)
 		}
 		actualLen++
 	}
-	if actualLen<initialLen {
+	if actualLen < initialLen {
 		snapshot = snapshot[:actualLen]
 	}
 	return snapshot
@@ -105,15 +105,15 @@ func (set *hashSet) String() string {
 
 //a是否为b超集即b中的所有元素在a中都能找到
 func (set *hashSet) IsSuperSet(other set) bool {
-	if other==nil {
+	if other == nil {
 		return false
 	}
 	oneLen := set.Len()
 	otherLen := other.Len()
-	if oneLen==0||oneLen==otherLen {
+	if oneLen == 0 || oneLen == otherLen {
 		return false
 	}
-	if oneLen>0&&otherLen==0 {
+	if oneLen > 0 && otherLen == 0 {
 		return true
 	}
 	for _, v := range other.Elements() {

@@ -6,7 +6,7 @@ import (
 	"github.com/elvizlai/utils/queue"
 	"github.com/elvizlai/utils/stack"
 	"github.com/elvizlai/utils/cipher"
-	"github.com/elvizlai/utils/hashset"
+	"github.com/elvizlai/utils/sets/hashset"
 	"github.com/elvizlai/utils/node"
 	"github.com/elvizlai/utils/orderedMap"
 	"reflect"
@@ -135,9 +135,9 @@ func main() {
 	fmt.Println("\n---------OrderedMap---------")
 	keys := orderedMap.NewKeys(func(e1 interface{}, e2 interface{}) int8 {
 		k1, k2 := e1.(string), e2.(string)
-		if k1==k2 {
+		if k1 == k2 {
 			return 0
-		}else if k1>k2 {
+		}else if k1 > k2 {
 			return 1
 		}else {
 			return -1
@@ -155,20 +155,35 @@ func main() {
 	fmt.Println("-------ringQueue-------")
 	rq := queue.NewRingQueue(1)
 	fmt.Println(rq.Push("1"))
-	fmt.Print(rq.Pop()," ")
+	fmt.Print(rq.Pop(), " ")
 	fmt.Println(rq.Push("2"))
 	fmt.Println(rq.Push("3"))
 	fmt.Println(rq.Push("4"))
 	fmt.Println(rq.Push("5"))
 
-	fmt.Print(rq.Pop()," ")
-	fmt.Print(rq.Pop()," ")
-	fmt.Print(rq.Pop()," ")
-	fmt.Print(rq.Pop()," ")
-	fmt.Print(rq.Pop()," ")
+	fmt.Print(rq.Pop(), " ")
+	fmt.Print(rq.Pop(), " ")
+	fmt.Print(rq.Pop(), " ")
+	fmt.Print(rq.Pop(), " ")
+	fmt.Print(rq.Pop(), " ")
 	fmt.Print(rq.Pop())
 
 
-	fmt.Println(3&2)
+	fmt.Println()
+	pq := queue.NewPriorityQueue()
+	i := &queue.Item{Value:"c", Priority:10}
+	pq.Push(i)
+	i = &queue.Item{Value:"b", Priority:12}
+	pq.Push(i)
+	i = &queue.Item{Value:"a", Priority:120}
+	pq.Push(i)
 
+	fmt.Println(pq.Len())
+	fmt.Println(pq.Pop())
+	fmt.Println(pq.Pop())
+	fmt.Println(pq.Pop())
+
+	s:=make(chan bool,10)
+
+	fmt.Println(len(s),cap(s))
 }

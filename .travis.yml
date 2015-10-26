@@ -3,4 +3,11 @@ language: go
 go:
   - tip
 
-script: go get ./...
+matrix:
+  fast_finish: true
+
+before_install:
+  - go get -v ./...
+
+script:
+  - go run main.go

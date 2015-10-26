@@ -6,8 +6,5 @@ go:
 matrix:
   fast_finish: true
 
-before_install:
-  - go get -v ./...
-
 script:
   - go run main.go

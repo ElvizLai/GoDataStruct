@@ -3,12 +3,12 @@ package main
 import "fmt"
 
 import (
-	"github.com/elvizlai/utils/queue"
-	"github.com/elvizlai/utils/stack"
-	"github.com/elvizlai/utils/cipher"
-	"github.com/elvizlai/utils/sets/hashset"
-	"github.com/elvizlai/utils/node"
-	"github.com/elvizlai/utils/orderedMap"
+	"utils/queue"
+	"utils/stack"
+	"utils/cipher"
+	"utils/sets/hashset"
+	"utils/node"
+	"utils/orderedMap"
 	"reflect"
 )
 

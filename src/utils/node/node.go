@@ -1,6 +1,6 @@
 package node
 import (
-	"elvizlai/utils/queue"
+	"utils/queue"
 )
 
 type LinkNode struct {

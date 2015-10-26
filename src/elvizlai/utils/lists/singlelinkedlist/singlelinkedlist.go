@@ -15,7 +15,6 @@ type element struct {
 	value interface{}
 }
 
-
 func New() *List {
 	return new(List)
 }
@@ -99,7 +98,6 @@ func (list *List) Remove(index int) (interface{}, bool) {
 
 	return iter.value, false
 }
-
 
 // Returns all elements in the list.
 func (list *List) Values() []interface{} {
